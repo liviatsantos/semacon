@@ -3,5 +3,5 @@
 
 * comando para criar um superuser no container
 ```
-docker exec -it backend-web-1 python manage.py createsuperuser
+docker exec -it semacon-web-1 python manage.py createsuperuser
 ```
