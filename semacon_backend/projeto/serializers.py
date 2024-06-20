@@ -10,4 +10,5 @@ class ProjetoListaSerializer(serializers.ModelSerializer):
             'data_inicio',
             'niveis',
             'area_total',
+            'imagem_url',
         )
