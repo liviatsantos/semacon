@@ -22,7 +22,16 @@ AUTH_USER_MODEL = 'useraccount.User'
 
 SITE_ID = 1
 
-WEBSITE_URL = 'http://localhost:8000'
+if DEBUG:
+    WEBSITE_URL = 'http://localhost:8000'
+else:
+    WEBSITE_URL = 'http://68.183.63.19:1337'
+
+CHANNEL_LAYERS ={
+    'default':{
+        'BACKEND': 'channels.layers.inMemoryChannelLayer'
+    }
+}
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
@@ -52,6 +61,22 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.0.1:80000',
     'http://127.0.0.0.1:30000',
+    'http://68.183.63.19',
+    'http://68.183.63.19:1337'
+]
+
+CORS_TRUSTED_ORIGINS = [
+    'http://127.0.0.0.1:80000',
+    'http://127.0.0.0.1:30000',
+    'http://68.183.63.19',
+    'http://68.183.63.19:1337'
+]
+
+CORS_ORIGINS_WHITELIST = [
+    'http://127.0.0.0.1:80000',
+    'http://127.0.0.0.1:30000',
+    'http://68.183.63.19',
+    'http://68.183.63.19:1337'
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
