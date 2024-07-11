@@ -19,11 +19,13 @@ def projeto_lista(request):
     })
 
 @api_view(['POST', 'FILES'])
+@authentication_classes([])
+@permission_classes([])
 def criar_projeto(request):
     form = ProjetoForm(request.POST, request.FILES)
 
     if form.is_valid():
-        projeto= form.save(commit=False)
+        projeto = form.save(commit=False)
         projeto.save()
 
         return JsonResponse({'success': True})
